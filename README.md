@@ -36,11 +36,11 @@ GraphRAG supports different search methods. **The method evaluated here is [TODO
 Both GraphRAG and VectorRAG used these documents listed below. These were verified to be free domain. No copyrighted material was used.
 
 
-| Work | Translator | Source URL |
-| --- | --- | --- | --- | --- |
-| A Discourse Upon the Origin and the Foundation of the Inequality Among Mankind | Unknown | https://www.gutenberg.org/ebooks/5427  |
-| The social contract & discourses by Jean-Jacques Rousseau | 	Cole, G. D. H. (George Douglas Howard) | https://www.gutenberg.org/ebooks/46333  |
-| Emile | Barbara Foxley | https://www.gutenberg.org/ebooks/5427  |
+Below list of sources used:
+
+A Discourse Upon the Origin and the Foundation of the Inequality Among Mankind. Translator is unknown.  https://www.gutenberg.org/ebooks/5427
+The social contract & discourses. Translated by Cole, G. D. H. (George Douglas Howard).  https://www.gutenberg.org/ebooks/46333
+Emile. Translated by Barbara Foxley. https://www.gutenberg.org/ebooks/5427
 
 **Text preparation:**
 All sources were used in a .txt format for these systems to embed. 

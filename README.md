@@ -86,7 +86,7 @@ Generated databases, caches, logs, and full indexing outputs are excluded. They 
 The benchmark contains 60 questions that are evenly divided into three categories:
 
 | Category | Questions | Purpose |
-| --- | | --- |
+| --- | --- |
 | local_fact_retrieval | 20 | Retrieve specific definitions, concepts, or explanations from an individual work. |
 | cross_document_reasoning | 20 | Connect and compare ideas across multiple works. |
 | global_sensemaking | 20 | Synthesize broad themes and relationships across Rousseau’s writings. |
@@ -98,7 +98,7 @@ Suggested dimensions are relevance, coverage, and support from the source texts.
 A judge's preference alone does not establish factual accuracy.
 
 | Criterion | Purpose |
-| --- | | --- |
+| --- | --- |
 | Comprehensiveness | How thoroughly the answer addresses the question. |
 | Diversity | How effectively the answer helps the reader understand the topic and make informed judgments. |
 | Empowerment | Synthesize broad themes and relationships across Rousseau’s writings. |

@@ -1,0 +1,13 @@
+group_type,group,evaluated_pairs,incomplete_pairs,graphrag_wins,vector_rag_wins,ties,no_majority,graphrag_win_pct,vector_rag_win_pct,tie_pct,graphrag_preference_share_pct,vector_rag_preference_share_pct
+category_criterion,local_fact_retrieval / comprehensiveness,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,local_fact_retrieval / diversity,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,local_fact_retrieval / empowerment,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,local_fact_retrieval / directness,20,0,15,5,0,0,75.0,25.0,0.0,75.0,25.0
+category_criterion,cross_document_reasoning / comprehensiveness,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,cross_document_reasoning / diversity,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,cross_document_reasoning / empowerment,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,cross_document_reasoning / directness,20,0,16,4,0,0,80.0,20.0,0.0,80.0,20.0
+category_criterion,global_sensemaking / comprehensiveness,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,global_sensemaking / diversity,20,0,20,0,0,0,100.0,0.0,0.0,100.0,0.0
+category_criterion,global_sensemaking / empowerment,20,0,17,3,0,0,85.0,15.0,0.0,85.0,15.0
+category_criterion,global_sensemaking / directness,20,0,14,6,0,0,70.0,30.0,0.0,70.0,30.0

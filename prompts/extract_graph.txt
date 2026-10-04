@@ -1,0 +1,223 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"<|><entity_name><|><entity_type><|><entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"<|><source_entity><|><target_entity><|><relationship_description><|><relationship_strength>)
+
+3. Return output in English as a single list of all the entities and relationships identified in steps 1 and 2. Use **##** as the list delimiter.
+
+4. If you have to translate into English, just translate the descriptions, nothing else!
+
+5. When finished, output <|COMPLETE|>.
+
+-Examples-
+######################
+
+Example 1:
+
+text:
+ the social confederacy; for this provides a powerful protection
+for the immense possessions of the rich, and hardly leaves the poor
+man in quiet possession of the cottage he builds with his own hands.
+Are not all the advantages of society for the rich and powerful?
+Are not all lucrative posts in their hands? Are not all privileges
+and exemptions reserved for them alone? Is not the public authority
+always on their side? If a man of eminence robs his creditors, or is
+guilty of other knaveries, is he not always assured of impunity? Are
+not the assaults, acts of violence, assassinations, and even murders
+committed by the great, matters that are hushed up in a few months,
+and of which nothing more is thought? But if a great man himself is
+robbed or insulted, the whole police force is immediately in motion,
+and woe even to innocent persons who chance to be suspected. If he has
+to pass through any dangerous road, the country is up in arms to escort
+him. If the axle-tree of his chaise breaks, everybody flies to his
+assistance. If there is a noise at his door, he speaks but a word, and
+all is silent. If he is incommoded by the crowd, he waves his hand and
+every one makes way. If his coach is met on the road by a wagon, his
+servants are ready to beat the driver's brains out, and fifty honest
+pedestrians going quietly about their business had better be knocked on
+the head than an idle jackanapes be delayed in his coach. Yet all this
+respect costs him not a farthing: it is the rich man's right, and not
+what he buys with his wealth. How different the case of the poor man!
+the more humanity owes him, the more society denies him. Every door is
+shut against him, even when he has a right
+------------------------
+output:
+("entity"<|>MAGISTRATES<|>PERSON, POLITICAL ROLE<|>Magistrates are individuals who are members of the governing body, sometimes referred to as kings, meaning governors; they are entrusted with the administration of the state on behalf of the Sovereign.)
+##
+("entity"<|>KINGS<|>PERSON, POLITICAL ROLE<|>Kings are described as governors or magistrates, occupying the role of rulers or administrators within the governmental structure; their role is to exercise executive power as assigned by the Sovereign.)
+##
+("entity"<|>PRINCE<|>PERSON, POLITICAL BODY<|>The prince refers either to a single magistrate or a governing body as a collective agent that executes supreme administrative power, as delegated by the Sovereign.)
+##
+("entity"<|>SOVEREIGN<|>POLITICAL BODY, INSTITUTION<|>The Sovereign is the collective body of the people holding ultimate power in a society. The Sovereign delegates administrative authority to the government but retains ultimate control and can limit, modify, or recover that authority.)
+##
+("entity"<|>GOVERNMENT<|>INSTITUTION, ORGANIZATION<|>Government or supreme administration is the legitimate exercise of executive power, consisting of those entrusted with implementing the orders of the Sovereign; it acts as the intermediary between the Sovereign and the State.)
+##
+("entity"<|>STATE<|>POLITICAL BODY, INSTITUTION<|>The State is the social body or political community, in which the government serves as a component connecting the Sovereign with the subjects or citizens.)
+##
+("entity"<|>CITIZENS<|>PERSON, SOCIAL GROUP<|>Citizens are the members of the State who are on the one hand sovereign and on the other subject; they have dual roles depending on their relation to the government and the Sovereign.)
+##
+("entity"<|>SUBJECTS<|>PERSON, SOCIAL GROUP<|>Subjects are the people governed by the government; they are the recipients of orders given by the government on behalf of the Sovereign. The same people may be both citizens and subjects depending on context.)
+##
+("entity"<|>DESPOTISM<|>CONCEPT, POLITICAL STATE<|>Despotism refers to a condition of the dissolution of the State resulting from disorder in the relations between the Sovereign, government, and subjects, especially when power is centralized or abused.)
+##
+("entity"<|>ANARCHY<|>CONCEPT, POLITICAL STATE<|>Anarchy refers to a state of political disorder, emerging when the relations between the Sovereign, government, and citizens break down, typically due to lack of effective governance or refusal of obedience.)
+##
+("relationship"<|>MAGISTRATES<|>PRINCE<|>Magistrates or kings collectively form the body called prince, that is, those entrusted with the administration of the government.<|>9)
+##
+("relationship"<|>PRINCE<|>GOVERNMENT<|>The prince, as an individual or governing body, is entrusted with the administration and exercise of government power.<|>9)
+##
+("relationship"<|>GOVERNMENT<|>SOVEREIGN<|>The government is constituted by the Sovereign, which delegates executive power but retains ultimate authority.<|>9)
+##
+("relationship"<|>GOVERNMENT<|>STATE<|>The government acts as an intermediary force whose relations constitute the link between the Sovereign and the State.<|>9)
+##
+("relationship"<|>SOVEREIGN<|>STATE<|>The Sovereign represents the collective will of the community and has ultimate authority over the State.<|>8)
+##
+("relationship"<|>GOVERNMENT<|>CITIZENS<|>The government issues orders to the people who are both citizens (as part of the Sovereign) and subjects (as those governed).<|>8)
+##
+("relationship"<|>CITIZENS<|>SOVEREIGN<|>Citizens as a collective body make up the Sovereign, holding ultimate political authority.<|>8)
+##
+("relationship"<|>CITIZENS<|>SUBJECTS<|>The members of the State act as both citizens (when exercising sovereignty) and subjects (when governed by the administration).<|>7)
+##
+("relationship"<|>DESPOTISM<|>STATE<|>Despotism is a possible state of dissolution into which the State falls if the balance between the Sovereign, government, and subjects is lost.<|>7)
+##
+("relationship"<|>ANARCHY<|>STATE<|>Anarchy is another condition of disorder and dissolution resulting from the breakdown in the relationships among the Sovereign, government, and citizens/subjects.<|>7)
+<|COMPLETE|>
+#############################
+
+
+Example 2:
+
+text:
+ its right relation to
+the others, and provides a link or middle term between either prince
+and people, or prince and Sovereign, or, if necessary, both at once.
+
+This body, which I shall call the _tribunate_, is the preserver of the
+laws and of the legislative power. It serves sometimes to protect the
+Sovereign against the government, as the tribunes of the people did
+at Rome; sometimes to uphold the government against the people, as
+the Council of Ten now does at Venice; and sometimes to maintain the
+balance between the two, as the Ephors did at Sparta.
+
+The tribunate is not a constituent part of the city, and should have
+no share in either legislative or executive power; but this very fact
+makes its own power the greater: for, while it can do nothing, it can
+prevent anything from being done. It is more sacred and more revered,
+as the defender of the laws, than the prince who executes them, or than
+the Sovereign which ordains them. This was seen very clearly at Rome,
+when the proud patricians, for all their scorn of the people, were
+forced to bow before one of its officers, who had neither auspices nor
+jurisdiction.
+
+The tribunate, wisely tempered, is the strongest support a good
+constitution can have; but if its strength is ever so little excessive,
+it upsets the whole State. Weakness, on the other hand, is not natural
+to it: provided it is something, it is never less than it should be.
+
+It degenerates into tyranny when it usurps the executive power, which
+it should confine itself to restraining, and when it tries to dispense
+with the laws, which it should confine itself to protecting. The
+immense power of the Ephors, harmless as long as Sparta preserved its
+morality, hastened corruption when once it had begun.
+------------------------
+output:
+("entity"<|>MAGISTRATES<|>ROLE, POSITION, SOCIAL ACTOR<|>Magistrates are individuals who are members of the governing body; they are entrusted with the exercise of government, serve as officials of the Sovereign, and are also referred to as 'kings' or 'governors' in this context.)
+##
+("entity"<|>KINGS<|>ROLE, POSITION, TITLE<|>'Kings' is a term used synonymously with magistrates or governors in this context, referring to those holding governing authority.)
+##
+("entity"<|>GOVERNORS<|>ROLE, POSITION, TITLE<|>Governors are equated with magistrates or kings; they are individuals who exercise governmental authority on behalf of the Sovereign.)
+##
+("entity"<|>PRINCE<|>ROLE, POSITION, SOCIAL BODY<|>The 'prince' in this context refers either to a single magistrate or to the whole body of the governing officials; it is not a contract-based office but a commission or employment, carrying out the executive function within government.)
+##
+("entity"<|>SOVEREIGN<|>CONCEPT, POLITICAL BODY, PRINCIPLE<|>The Sovereign refers to the collective body of citizens or the supreme legislative authority, who confer executive power upon the government or its magistrates, retain the right to limit or recover this power, and are the source of legitimate authority.)
+##
+("entity"<|>GOVERNMENT<|>INSTITUTION, SYSTEM, FUNCTION<|>Government is the legitimate exercise of the executive power, comprising the body (prince/magistrate) entrusted with administration; it serves as the intermediary between the Sovereign and the State, receives orders from the Sovereign, and conveys them to the people.)
+##
+("entity"<|>STATE<|>CONCEPT, POLITICAL COMMUNITY, ORGANIZATION<|>The State is the totality of the political community composed of the Sovereign, the government, and the people; its stability depends on the balance and equality of power between these elements.)
+##
+("entity"<|>CITIZENS<|>PERSON, COLLECTIVE BODY, POPULATION<|>Citizens constitute both the Sovereign and the subjects within the State; they are the ultimate source of power, being able to act both as rulers and as those subject to rule.)
+##
+("entity"<|>SUBJECTS<|>PERSON, SOCIAL GROUP, POLITICAL ROLE<|>Subjects are the same individuals who, as citizens, are both sources of sovereignty and those who obey the laws established by the government.)
+##
+("entity"<|>EXECUTIVE POWER<|>CONCEPT, POLITICAL FUNCTION<|>The executive power is the authority exercised by the government (prince/magistrates/governors), acting upon commission from the Sovereign.)
+##
+("entity"<|>LAWS<|>CONCEPT, PRINCIPLE, INSTITUTION<|>Laws are the rules established by the Sovereign and implemented by the government; legitimacy in government arises from executing these laws.)
+##
+("entity"<|>CONTRACT<|>CONCEPT, AGREEMENT<|>The act of putting oneself under a prince is explicitly stated not to be a contract, but rather a commission.)
+##
+("entity"<|>COMMISSION<|>CONCEPT, APPOINTMENT<|>Commission here is the appointment or mandate by which the Sovereign gives authority to the government or prince to exercise executive power.)
+##
+("entity"<|>POWER<|>CONCEPT, ABSTRACTION<|>Refers to the authority or energy in the context of the proportion between government, Sovereign, and citizens, necessary to maintain equality and order in the State.)
+##
+("entity"<|>DESPOTISM<|>CONCEPT, POLITICAL OUTCOME, SYSTEM<|>Despotism is the result when the regular relationship and balance between Sovereign, government, and subject are lost.)
+##
+("entity"<|>ANARCHY<|>CONCEPT, POLITICAL OUTCOME, SYSTEM<|>Anarchy is another potential negative outcome if the roles of Sovereign, government, and subjects become confused or out of balance.)
+##
+("entity"<|>LIBERTY<|>CONCEPT, PRINCIPLE<|>Refers to both civil and political liberty, which is secured only through the correct functioning and balance of Sovereign, government, and the governing bodies.)
+##
+("relationship"<|>MAGISTRATES<|>PRINCE<|>Magistrates collectively make up the prince or may individually be called prince if holding the supreme administrative role.<|>8)
+##
+("relationship"<|>KINGS<|>MAGISTRATES<|>'Kings' is a synonym for 'magistrates', i.e., those governing, in this context.<|>9)
+##
+("relationship"<|>GOVERNORS<|>MAGISTRATES<|>'Governors' is also a synonym for magistrates, denoting those with governing authority.<|>9)
+##
+("relationship"<|>PRINCE<|>GOVERNMENT<|>The prince (either an individual or body of magistrates) is the entity entrusted with and exercising the executive function of government.<|>8)
+##
+("relationship"<|>PRINCE<|>SOVEREIGN<|>The prince derives authority from the Sovereign; it is designated by the Sovereign as a 'commission' or appointment, not as part of a contract.<|>7)
+##
+("relationship"<|>GOVERNMENT<|>EXECUTIVE POWER<|>Government is defined as the legitimate exercise or administration of the executive power.<|>9)
+##
+("relationship"<|>SOVEREIGN<|>GOVERNMENT<|>The Sovereign confers, limits, modifies, or can recover the power of government; the government executes policies and will of the Sovereign.<|>10)
+##
+("relationship"<|>GOVERNMENT<|>STATE<|>Government is a mediating or intermediate body within the State, balancing the relationship between Sovereign and the State as a whole.<|>7)
+##
+("relationship"<|>STATE<|>SOVEREIGN<|>The whole State contains the Sovereign (the body of citizens, or sovereign people), with whom ultimate power resides.<|>8)
+##
+("relationship"<|>STATE<|>CITIZENS<|>Citizens constitute the State as both Sovereign (collectively) and subject (individually).<|>8)
+##
+("relationship"<|>CITIZENS<|>SOVEREIGN<|>Citizens are the members of the Sovereign; in their collective aspect they are the ultimate authority.<|>10)
+##
+("relationship"<|>CITIZENS<|>SUBJECTS<|>The same individuals are both citizens (holders of sovereignty) and subjects (those who obey laws).<|>10)
+##
+("relationship"<|>GOVERNMENT<|>CITIZENS<|>Government is balanced between the power of the government and the power of the citizens; the two must be in equilibrium for stability.<|>8)
+##
+("relationship"<|>MAGISTRATES<|>GOVERNMENT<|>Magistrates are the officials of government, entrusted by the Sovereign with executive authority.<|>9)
+##
+("relationship"<|>SOVEREIGN<|>CONTRACT<|>The Sovereign’s delegation of authority to a prince is said not to be a contract.<|>6)
+##
+("relationship"<|>SOVEREIGN<|>COMMISSION<|>The Sovereign gives government or the prince a 'commission', meaning an appointment or mandate to govern.<|>8)
+##
+("relationship"<|>GOVERNMENT<|>LAWS<|>The administration of government must execute the laws determined by the Sovereign.<|>9)
+##
+("relationship"<|>LIBERTY<|>STATE<|>Civil and political liberty is an objective to be secured by the correct arrangement of Sovereign, government, and State.<|>6)
+##
+("relationship"<|>DESPOTISM<|>STATE<|>The State risks falling into despotism if regularity breaks and roles/conflicts among government, Sovereign, or subject are unsettled.<|>7)
+##
+("relationship"<|>ANARCHY<|>STATE<|>The State risks anarchy as well if citizens resist authority or the chain of legitimate power is disturbed.<|>7)
+##
+("relationship"<|>POWER<|>GOVERNMENT<|>Government depends on an equilibrium of power between itself, the Sovereign, and citizens for proper functioning.<|>8)
+<|COMPLETE|>
+#############################
+
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:

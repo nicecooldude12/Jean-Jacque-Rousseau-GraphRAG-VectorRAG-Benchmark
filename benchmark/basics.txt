@@ -1,0 +1,21 @@
+Utilize LLM-as-a-Judge technique from (Zheng et al., 2024) by using 3 categories as a baseline for evaluation:
+EDGE et. al 2024
+
+• Comprehensiveness. How much detail does the answer provide to cover all aspects and
+details of the question?
+• Diversity. How varied and rich is the answer in providing different perspectives and insights
+on the question?
+• Empowerment. How well does the answer help the reader understand and make informed
+judgments about the topic?
+
+Also another good source of how to build this benchmark:
+https://graphrag-bench.github.io/?utm_source=chatgpt.com
+
+benchmark/
+│
+├── questions.json
+├── run_vector_rag.py
+├── run_graphrag.py
+├── evaluate.py
+├── results.csv
+└── analysis.py

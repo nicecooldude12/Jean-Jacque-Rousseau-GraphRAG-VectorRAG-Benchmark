@@ -1,4 +1,0 @@
-group_type,group,evaluated_pairs,incomplete_pairs,graphrag_wins,vector_rag_wins,ties,no_majority,graphrag_win_pct,vector_rag_win_pct,tie_pct,graphrag_preference_share_pct,vector_rag_preference_share_pct
-category,local_fact_retrieval,80,0,75,5,0,0,93.75,6.25,0.0,93.75,6.25
-category,cross_document_reasoning,80,0,76,4,0,0,95.0,5.0,0.0,95.0,5.0
-category,global_sensemaking,80,0,71,9,0,0,88.75,11.25,0.0,88.75,11.25

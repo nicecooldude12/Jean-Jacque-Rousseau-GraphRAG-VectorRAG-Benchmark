@@ -52,14 +52,14 @@ Record the settings used for the reported benchmark, including settings that dif
 
 | Setting | VectorRAG | GraphRAG |
 | --- | --- | --- |
-| Framework and version | [TODO: LangChain and Chroma versions] | Microsoft GraphRAG v3.2.0 |
+| Framework and version | LangChain with langchain_openai, langchain_chroma, and langchain_text_splitters; Chroma vector database. Versions not recorded in the supplied files. | Microsoft GraphRAG v3.2.0 |
 | Embedding model | text-embedding-3-large | text-embedding-3-large |
-| Answer-generation model | gpt-4.1-mini | gpt-4.1-mini |
+| Answer-generation model | gpt-4.1-mini with temperature=0 | gpt-4.1-mini |
 | Indexing / extraction model | Not applicable unless used | gpt-4.1-mini for graph extraction, description summarization, and community report generation |
-| Chunk size and unit | [TODO: Value; characters or tokens] | 600 tokens, using the o200k_base encoding |
-| Chunk overlap and unit | [TODO: Value and unit] | 100 tokens |
-| Retrieval settings | [TODO: Search method and number of passages] | LanceDB vector store at output\lancedb. Local, global, DRIFT, and basic search are configured. The method used in the benchmark, community level, and query context limits are not specified in this file. |
-| Answer instructions | [TODO: Prompt file and evidence rules] | Search-specific prompt files in prompts/, listed below. Their instructions and evidence rules require inspecting those files. |
+| Chunk size and unit | 500 characters, using RecursiveCharacterTextSplitter | 600 tokens, using the o200k_base encoding |
+| Chunk overlap and unit | Configured overlap of 100 characters | 100 tokens |
+| Retrieval settings | Chroma vector store at chroma_db, collection spinoza_collection. Uses similarity_search_with_score(k=5) to retrieve up to five passages. No score threshold or reranking is applied. | LanceDB vector store at output\lancedb. Local, global, DRIFT, and basic search are configured. The method used in the benchmark, community level, and query context limits are not specified in this file. |
+| Answer instructions | PROMPT_TEMPLATE in rag_chain.py: base answers on retrieved excerpts, address the question directly, explain concepts clearly, connect ideas when supported, distinguish evidence from interpretation, and avoid unsupported claims or invented quotations and citations. Answer partially when evidence is incomplete; explicitly state insufficient information when no answer is supported. | Search-specific prompt files in prompts/, listed below. Their instructions and evidence rules require inspecting those files. |
 
 See `settings.yaml` for further details.
 

@@ -22,7 +22,7 @@ site Project Gutenburg
 - Built scripts to generate answers, evaluate their quality, and analyze response times.
 - Documented the strengths and limitations of each approach.
 
-## Breif Overview of How the Two Aystems Work
+## Breif Overview of How the Two Systems Work
 
 | Stage | VectorRAG | GraphRAG |
 | --- | --- | --- |

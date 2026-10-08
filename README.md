@@ -79,10 +79,11 @@ Generated databases, caches, logs, and full indexing outputs are excluded. They 
 ## Evaluation Method
 
 **Question set**
+
 The benchmark contains 60 questions that are evenly divided into three categories:
 
 | Category | Questions | Purpose |
-| --- | --- |
+| --- | --- | --- |
 | local_fact_retrieval | 20 | Retrieve specific definitions, concepts, or explanations from an individual work. |
 | cross_document_reasoning | 20 | Connect and compare ideas across multiple works. |
 | global_sensemaking | 20 | Synthesize broad themes and relationships across Rousseau’s writings. |
